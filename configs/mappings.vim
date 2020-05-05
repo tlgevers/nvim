@@ -31,23 +31,43 @@ nmap <Leader>rr :source ~/.config/nvim/init.vim<CR>
 noremap <space>n :NERDTreeToggle <enter>
 nmap <Leader>ss :mks!<CR>
 
+" Cursor movements
+" Move to the beginning and end of the line
+noremap <Leader>h ^
+noremap <Leader>l $
+
+" Buffer switching
+" List current buffers and jump by first few letters, tab for completion, then
+" enter
+nnoremap <Leader>b :ls<CR>:b<space>
+" Switch between last buffer in current window
+map <Leader><Tab> :b#<cr>zz
+
 " open fork for current repo
 nmap <Leader>of :!fork open .<CR>
+
+" Clipboard helpers
+" Copy to 'clipboard registry'
+vmap <C-c> "*y
 
 
 " Window Navigation
 " Navigate to left window.
 nnoremap <C-h> <C-w>h
+nnoremap <Leader><Leader>h <C-W><C-H>
 " Navigate to down window.
 nnoremap <C-j> <C-w>j
+nnoremap <Leader><Leader>j <C-W><C-J>
 " Navigate to top window.
 nnoremap <C-k> <C-w>k
+nnoremap <Leader><Leader>k <C-W><C-K>
 " Navigate to right window.
 nnoremap <C-l> <C-w>l
+nnoremap <Leader><Leader>l <C-W><C-L>
 " Horizontal split then move to bottom window.
-" nnoremap <Leader>- <C-w>s
+nnoremap <Leader>- <C-w>s
 " Vertical split then move to right window.
-" nnoremap <Leader>\| <C-w>v<C-w>l
+nnoremap <Leader>\| <C-w>v<C-w>l
 " Cycle tabs with Tab and Shift+Tab
 " nnoremap<silent> <Tab> :bnext<CR>
 " nnoremap<silent> <S-Tab> :bprevious<CR>
