@@ -29,8 +29,8 @@ set title
 " set titlestring=%{expand(\"%:p:h\")}
 set titlestring=%{substitute(getcwd(),\ $HOME,\ '~',\ '')}
 
-" Longer leader key timeout
-" set timeout timeoutlen=1500
+" Shorter leader key timeout
+set timeout timeoutlen=200
 
 " Enable spell-checking for certain files
 autocmd FileType text,markdown setlocal spell
@@ -116,6 +116,9 @@ filetype plugin indent on
 " Split window appears right the current one.
 set splitright
 
+" Split window appears below the current one.
+set splitbelow
+
 " Make sure compatible mode is disabled
 set nocompatible
 
@@ -137,6 +140,9 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
 endif
+
+" highlight the current line in every window and update the highlight as the cursor moves.
+set cursorline
 
 " Relative line numbers
 " set nonumber
