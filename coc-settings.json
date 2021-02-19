@@ -35,24 +35,33 @@
  //Python 
 	
   "python.jediEnabled": false,
-  "python.jediPath": "/usr/local/lib/python3.7/site-packages",
+  "python.jediPath": "/usr/local/lib/python3.8/site-packages",
   "python.sortImports.path": "/usr/local/bin/isort",
   "python.formatting.blackPath": "/usr/local/bin/black",
   "python.formatting.provider": "black",
   "python.pipenvPath": "/usr/local/bin/pipenv",
   "python.envFile": "${workspaceFolder}/.env",
-  "python.venvPath": "/Users/trevorgevers/.local/share/virtualenvs",
+  "python.venvPath": "/home/tg/.local/share/virtualenvs",
 
  //Terraform
   "languageserver": {
     "terraform": {
       "command": "terraform-lsp",
-      "filetypes": ["terraform"],
+      "trace.server": "verbose",
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
       "initializationOptions": {}
+    },
+    "clangd": {
+      "command": "clangd-9",
+      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
     }
   },
 	
-
+  "suggest.enablePreview": true,
   "suggest.completionItemKindLabels": {
     "function": "\uf794",
     "method": "\uf6a6",

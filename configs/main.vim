@@ -13,7 +13,17 @@
 set background=light
 " colorscheme gruvbox
 " colorscheme wal
-colorscheme sonokai
+" colorscheme sonokai
+" colorscheme afterglow
+" colorscheme lightning
+" colorscheme materialbox
+" colorscheme minimalist
+" colorscheme tender
+" colorscheme PaperColor
+" colorscheme gotham
+" colorscheme happy_hacking
+" colorscheme MountainDew
+colorscheme sierra
 
 " let g:gruvbox_contrast_dark = 'soft'
 

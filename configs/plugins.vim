@@ -31,7 +31,7 @@ Plug 'jreybert/vimagit'
 
 " FZF
 set rtp+=~/.vim/bundle/fzf
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 
@@ -97,7 +97,7 @@ Plug 'liuchengxu/vista.vim'
 
 " NERDTree
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Emoji support

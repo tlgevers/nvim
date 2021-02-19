@@ -30,16 +30,16 @@ let g:rg_command = '
 " " Using the custom window creation function
 " let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
-" " Function to create the custom floating window
+" " " Function to create the custom floating window
 " function! FloatingFZF()
 "   " creates a scratch, unlisted, new, empty, unnamed buffer
 "   " to be used in the floating window
 "   let buf = nvim_create_buf(v:false, v:true)
 
 "   " 90% of the height
-"   let height = float2nr(&lines * 0.5)
+"   let height = float2nr(&lines * 0.6)
 "   " 60% of the height
-"   let width = float2nr(&columns * 0.4)
+"   let width = float2nr(&columns * 0.6)
 "   " horizontal position (centralized)
 "   let horizontal = float2nr((&columns - width) / 3)
 "   " vertical position (one line down of the top)
@@ -120,7 +120,7 @@ let g:NERDTreeIndicatorMapCustom = {
 "Airline   "
 """"""""""""
 "main settings
-let g:airline_theme='gruvbox'
+let g:airline_theme='cool'
 let g:airline_powerline_fonts = 0
 " let g:airline_symbols = {}
 " let g:airline_skip_empty_sections = 1
