@@ -24,6 +24,7 @@ set background=light
 " colorscheme happy_hacking
 " colorscheme MountainDew
 colorscheme sierra
+" colorscheme wwdc16
 
 " let g:gruvbox_contrast_dark = 'soft'
 
