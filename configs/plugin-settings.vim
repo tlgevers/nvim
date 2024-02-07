@@ -80,10 +80,10 @@ let g:taskwiki_syntax = 'markdown'
 " Vista  "
 """""""""""
 nmap <F8> :Vista!!<CR>
-let g:vista_executive_for = {
-      \ 'c': 'coc',
-      \ }
-nnoremap <silent><leader>vf :Vista finder coc<CR>
+" let g:vista_executive_for = {
+"       \ 'c': 'coc',
+"       \ }
+" nnoremap <silent><leader>vf :Vista finder coc<CR>
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista#renderer#enable_icon = 1
 let g:vista_sidebar_width = 50
@@ -284,12 +284,12 @@ let g:rainbow_active = 1
 """""""
 
 " Define Error Symbols and colors
-let g:coc_status_warning_sign = ''
-let g:coc_status_error_sign = ''
-hi CocWarningSign ctermfg=blue 
-hi CocErrorSign ctermfg=red
-hi CocInfoSign ctermfg=yellow
-hi CocHintSign ctermfg=green
+" let g:coc_status_warning_sign = ''
+" let g:coc_status_error_sign = ''
+" hi CocWarningSign ctermfg=blue 
+" hi CocErrorSign ctermfg=red
+" hi CocInfoSign ctermfg=yellow
+" hi CocHintSign ctermfg=green
 
 " Transparent popup window
 hi! Pmenu ctermbg=black
@@ -301,73 +301,83 @@ hi! LineNr ctermfg=NONE guibg=NONE
 
 " KEY REMAPS ""
 set updatetime=300
-let g:ycm_server_python_interpreter = '/usr/bin/python3'
-let g:coc_snippet_next = '<TAB>'
-let g:coc_snippet_prev = '<S-TAB>'
+" let g:ycm_server_python_interpreter = '/usr/bin/python3'
+" let g:coc_snippet_next = '<TAB>'
+" let g:coc_snippet_prev = '<S-TAB>'
 
 " Extensions. Some need configuration. 
 " coc-java needs a valid JVM filepath defined in coc-settings
 " coc-ccls needs ccls (available on aur)
 " coc-eslint needs eslint npm package installed globally
-let g:coc_global_extensions = [
-      \'coc-html', 
-      \'coc-xml', 
-      \'coc-vimlsp', 
-      \'coc-sql', 
-      \'coc-go', 
-      \'coc-css', 
-      \'coc-sh', 
-      \'coc-snippets',
-      \'coc-prettier',
-      \'coc-eslint',
-      \'coc-emmet',
-      \'coc-tsserver',
-      \'coc-docker',
-      \'coc-pairs',
-      \'coc-json',
-      \'coc-python',
-      \'coc-highlight',
-      \'coc-git',
-      \'coc-gitignore',
-      \'coc-emoji',
-      \'coc-lists',
-      \'coc-stylelint',
-      \'coc-yaml',
-      \'coc-template',
-      \'coc-utils'
-      \]
+" let g:coc_global_extensions = [
+"       \'coc-html', 
+"       \'coc-xml', 
+"       \'coc-vimlsp', 
+"       \'coc-sql', 
+"       \'coc-go', 
+"       \'coc-css', 
+"       \'coc-sh', 
+"       \'coc-snippets',
+"       \'coc-prettier',
+"       \'coc-eslint',
+"       \'coc-emmet',
+"       \'coc-tsserver',
+"       \'coc-docker',
+"       \'coc-pairs',
+"       \'coc-json',
+"       \'coc-python',
+"       \'coc-highlight',
+"       \'coc-git',
+"       \'coc-gitignore',
+"       \'coc-emoji',
+"       \'coc-lists',
+"       \'coc-stylelint',
+"       \'coc-yaml'
+"       \]
 
 " Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+nnoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+" use <c-space>for trigger completion
+" inoremap <silent><expr> <c-space> coc#refresh()
+" use <c-space>for trigger completion
+inoremap <silent><expr> <NUL> coc#refresh()
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocAction('doHover')
+"   endif
+" endfunction
 
 " Remap for format selected region
 " nmap <leader>f  <Plug>(coc-format-selected)
 
 " Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+" nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Create mappings for function text object, requires document symbols feature of languageserver.
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
+" xmap if <Plug>(coc-funcobj-i)
+" xmap af <Plug>(coc-funcobj-a)
+" omap if <Plug>(coc-funcobj-i)
+" omap af <Plug>(coc-funcobj-a)
 
 " augroup MyAutoCmd
 "   autocmd!
@@ -378,14 +388,14 @@ omap af <Plug>(coc-funcobj-a)
 " augroup end
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " map <tab> to trigger completion and navigate to the next item
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      " \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+      " \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -394,7 +404,7 @@ endfunction
 
 " include .venv folders to detemrine workspaces
 " (useful for multiple python interpreters in a single workspace (project))
-autocmd FileType python let b:coc_root_patterns = ['.venv', '.vim', '.git']
+" autocmd FileType python let b:coc_root_patterns = ['.venv', '.vim', '.git']
 """"""""""
 "Markdown"
 """"""""""

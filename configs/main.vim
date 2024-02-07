@@ -10,20 +10,20 @@
 
 
 " Colorscheme
-set background=light
+set background=dark
 " colorscheme gruvbox
 " colorscheme wal
 " colorscheme sonokai
 " colorscheme afterglow
 " colorscheme lightning
 " colorscheme materialbox
-" colorscheme minimalist
+colorscheme minimalist
 " colorscheme tender
 " colorscheme PaperColor
 " colorscheme gotham
 " colorscheme happy_hacking
 " colorscheme MountainDew
-colorscheme sierra
+" colorscheme sierra
 " colorscheme wwdc16
 
 " let g:gruvbox_contrast_dark = 'soft'
@@ -94,7 +94,7 @@ syntax on
 let g:python_highlight_all = 1
 
 " Print syntax highlighting.
-set printoptions+=syntax:y
+" set printoptions+=syntax:y
 
 " Matching braces/tags
 set showmatch
@@ -172,4 +172,11 @@ let g:ale_fixers.javascript = ['eslint']
 let g:ale_fix_on_save = 1
 
 
+highlight StartifyBracket ctermfg=240
+highlight StartifyFooter  ctermfg=240
+highlight StartifyHeader  ctermfg=114
+highlight StartifyNumber  ctermfg=215
+highlight StartifyPath    ctermfg=245
+highlight StartifySlash   ctermfg=240
+highlight StartifySpecial ctermfg=240
 

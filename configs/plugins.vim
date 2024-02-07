@@ -131,12 +131,13 @@ Plug 'deviantfero/wpgtk.vim'
 
 
 "Markdown
+Plug 'rmagatti/goto-preview'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'mzlogin/vim-markdown-toc'
 
 " Pipenv
-Plug 'plytophogy/vim-virtualenv'
-Plug 'PieterjanMontens/vim-pipenv'
+" Plug 'plytophogy/vim-virtualenv'
+" Plug 'PieterjanMontens/vim-pipenv'
 
 " readline mappings for insert mode
 Plug 'tpope/vim-rsi'
@@ -145,3 +146,5 @@ Plug 'tpope/vim-rsi'
 " Plug '907th/vim-auto-save'
 
 call plug#end()
+
+set encoding=UTF-8

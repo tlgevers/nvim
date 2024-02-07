@@ -17,6 +17,8 @@
 
 " escape to enter normal mode from term
 tnoremap <Esc> <C-\><C-n>
+nmap j <Up>
+nmap k <Down>
 
 " Set leader to space bar
 let mapleader = " "
@@ -146,3 +148,12 @@ nmap <Leader>fn :FZF ~/notes<CR>
 " lazydocker and lazygit
 nnoremap <silent> <Leader>ld :call ToggleLazyDocker()<CR>
 nnoremap <silent> <Leader>lg :call ToggleLazyGit()<CR>
+
+nnoremap <Leader>cd <cmd>lua require('goto-preview').goto_preview_definition()<CR>
+nnoremap gpt <cmd>lua require('goto-preview').goto_preview_type_definition()<CR>
+nnoremap gpi <cmd>lua require('goto-preview').goto_preview_implementation()<CR>
+nnoremap gpD <cmd>lua require('goto-preview').goto_preview_declaration()<CR>
+nnoremap gP <cmd>lua require('goto-preview').close_all_win()<CR>
+nnoremap gpr <cmd>lua require('goto-preview').goto_preview_references()<CR>
+
+:lua require('goto-preview').setup {}
